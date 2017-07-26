@@ -1,0 +1,606 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"PHP_",
+				"PHP_EOL〔constant〕"
+			],
+			[
+				"mysqli_fetc",
+				"mysqli_fetch_array"
+			],
+			[
+				"loca",
+				"location"
+			],
+			[
+				"S",
+				"SESSION"
+			],
+			[
+				"_SEE",
+				"$_SESSION〔variable〕"
+			],
+			[
+				"mysqli",
+				"mysqli_query"
+			],
+			[
+				"db",
+				"$db〔variable〕"
+			],
+			[
+				"mysql",
+				"mysqli〔class〕"
+			],
+			[
+				"Address",
+				"Address"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"uns",
+				"unset〔keyword〕"
+			],
+			[
+				"my",
+				"mysql_query"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"input",
+				"input-group"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<?php include ('server.php');?>\n\n<!DOCTYPE html>\n<html>\n<head>\n\t<title>CRUD pratice by Zhongjie Shen</title>\n\t<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n</head>\n\n<body>\n\t<?php if (isset($_SESSION['msg'])): ?>\n\t\t<div class=\"msg\">\n\t\t\t<?php \n\t\t\t\techo $_SESSION['msg'];\n\t\t\t\tunset($_SESSION['msg']);\n\t\t\t ?>\n\t\t</div>\n\t<?php endif ?>\n\n\t<table>\n\t\t<thead>\n\t\t\t<tr>\n\t\t\t\t<th>Name</th>\n\t\t\t\t<th>Address</th>\n\t\t\t\t<th colspan=\"2\">Action</th>\n\t\t\t</tr>\n\t\t</thead>\n\t\t<tbody>\n\t\t\t<?php while ($row = mysqli_fetch_array($results)) {?>\n\t\t\t\t<tr>\n\t\t\t\t\t<td><?php echo $row['name']; ?></td>\n\t\t\t\t\t<td><?php echo $row['address']; ?></td>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<a href=\"index.php?edit=<?php echo $row['id']; ?>\" class=\"edit_btn\">\n\t\t\t\t\t\tEdit</a>\n\t\t\t\t\t</td>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<a href=\"server.php?del=<?php echo $row['id']; ?>\" class=\"del_btn\">\n\t\t\t\t\t\tDelete</a>\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t<?php } ?>\n\t\t</tbody>\n\t</table>\n\n\t<form method=\"post\" action=\"server.php\" >\n\t\t<div class=\"input-group\">\n\t\t\t<label>Name</label>\n\t\t\t<input type=\"text\" name=\"name\" value=\"\">\n\t\t</div>\n\t\t<div class=\"input-group\">\n\t\t\t<label>Address</label>\n\t\t\t<input type=\"text\" name=\"address\" value=\"\">\n\t\t</div>\n\t\t<div class=\"input-group\">\n\t\t<?php if ($update == false): ?>\n\t\t\t<button class=\"btn\" type=\"submit\" name=\"save\" >Save</button>\n\t\t<?php else: ?>\n\t\t\t<button class=\"btn\" type=\"submit\" name=\"update\" >Update</button>\n\t\t<?php endif ?>\n\t\t</div>\n\t</form>\n</body>\n</html>",
+			"file": "index.php",
+			"file_size": 1409,
+			"file_write_time": 131455228610000000,
+			"settings":
+			{
+				"buffer_size": 1410,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server.php",
+			"settings":
+			{
+				"buffer_size": 1643,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "theme",
+		"selected_items":
+		[
+			[
+				"theme",
+				"Material Theme: Advanced configuration"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"intall",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"terial",
+				"Material Theme: Configuration"
+			],
+			[
+				"ma",
+				"Material Theme: Advanced configuration"
+			],
+			[
+				"mater",
+				"Material Theme: Activate theme"
+			],
+			[
+				"git ",
+				"Git: Push"
+			],
+			[
+				"git bran",
+				"Git: New Branch"
+			],
+			[
+				"git",
+				"Git: Commit history"
+			],
+			[
+				"evernote",
+				"Evernote: New empty note"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"git ",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"cleart",
+			"print(t)",
+			"t=2",
+			"show ",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib2,os,hashlib"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Applications/MAMP/htdocs"
+	],
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/index.php",
+		"/Applications/MAMP/htdocs/server.php",
+		"/Applications/MAMP/htdocs/CRUD practice 1.sublime-project",
+		"/Applications/MAMP/htdocs/README.md",
+		"/Users/zhongjieshen/Downloads/php-crud-create,-edit,-update-and-delete-posts-with-mysql-database 2/index.php",
+		"/Users/zhongjieshen/Downloads/php-crud-create,-edit,-update-and-delete-posts-with-mysql-database 2/server.php",
+		"/Users/zhongjieshen/.bitnami/stackman/machines/xampp/volumes/root/htdocs/071917_GRUD_Practice/style.css",
+		"/Users/zhongjieshen/Library/Application Support/Sublime Text 3/Packages/Evernote/Evernote.sublime-settings",
+		"/Users/zhongjieshen/Dropbox/Code/self-learning/php/071917_GRUD_Practice/server.php",
+		"/Users/zhongjieshen/Dropbox/Code/self-learning/php/071917_GRUD_Practice/index.php",
+		"/Users/zhongjieshen/Library/Application Support/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
+		"/Users/zhongjieshen/Dropbox/Code/self-learning/php/071917_GRUD_Practice/style.css",
+		"/Users/zhongjieshen/.bitnami/stackman/machines/xampp/volumes/root/etc/extra/httpd-xampp.conf",
+		"/Users/zhongjieshen/Dropbox/Code/self-learning copy/php/071917_GRUD_Practice/index.php",
+		"/Users/zhongjieshen/Dropbox/Code/self-learning/php/071917_GRUD_Practice/untitled",
+		"/Users/zhongjieshen/Dropbox/Code/self-learning/php/071917_GRUD_Practice/database.php",
+		"/Users/zhongjieshen/Dropbox/self-learning/php/071917_GRUD_Practice/database.php",
+		"/Users/zhongjieshen/Desktop/071917 GRUD Practice.php",
+		"/Users/zhongjieshen/Desktop/test.php",
+		"/Users/zhongjieshen/Desktop/071917 GRUD Practice",
+		"/Users/zhongjieshen/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/zhongjieshen/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 95.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"del",
+			"edit",
+			"Save",
+			"results",
+			"name",
+			"theme",
+			"console"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1410,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								706,
+								706
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										705,
+										706
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/double_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										696,
+										697
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"git_gutter_is_enabled": false,
+							"history_list_is_closing": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 447.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "server.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1643,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								680,
+								680
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										681,
+										682
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/double_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										667,
+										668
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme-Darker.tmTheme",
+							"git_gutter_is_enabled": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 27.0
+	},
+	"pinned_build_system": "",
+	"project": "CRUD 1.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"index.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"/Applications/MAMP/htdocs/CRUD practice 1.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 193.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
