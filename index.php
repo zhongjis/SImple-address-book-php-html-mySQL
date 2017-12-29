@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
+
 <body>
 	<?php if (isset($_SESSION['msg'])): ?>
 		<div class="msg">
@@ -18,7 +19,7 @@
 	<?php endif ?>
 
 	<table>
-		<thead>
+	<thead>
 			<tr>
 				<th>Name</th>
 				<th>Address</th>
@@ -62,4 +63,3 @@
 		</div>
 	</form>
 </body>
-</html>

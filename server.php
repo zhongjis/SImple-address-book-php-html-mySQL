@@ -1,4 +1,5 @@
 <?php 
+	echo phpinfo()
 	session_start();
 
 	$name = "";
@@ -16,7 +17,7 @@
 		echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
 	}
 
-	// same records (save botton is clicked)
+	// save records (save botton is clicked)
 	if (isset($_POST['save'])) {
 		$name = $_POST['name'];
 		$address = $_POST['address'];
@@ -38,7 +39,7 @@
 
 		$query = "UPDATE info SET name='$name', address='$address' where id='$id'";
 		mysqli_query($db, $query);
-		$_SESSION['message'] = "Address updated!"; 
+		$_SESSION['msg'] = "Address updated!"; 
 		header('location: index.php');
 	}
 
